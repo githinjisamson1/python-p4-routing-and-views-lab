@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
-from flask import Flask, render_template
+# import module
+from flask import Flask
 
+# instantiate
 app = Flask(__name__)
 
-
+# !routes + views
 @app.route("/")
 def index():
     return "<h1>Python Operations with Flask Routing and Views</h1>"
 
-
+# !route + route_parameter
 @app.route("/print/<string:parameter>")
 def print_string(parameter):
     print(parameter)
@@ -29,6 +31,7 @@ def count(parameter):
 
 @app.route("/math/<int:num1><operation><int:num2>")
 def math(num1, operation, num2):
+    # can use match...case
     if operation == "+":
         return f"<h1>{num1 + num2}</h1>"
     elif operation == "-":
